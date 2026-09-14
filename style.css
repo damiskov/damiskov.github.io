@@ -1,17 +1,17 @@
 :root {
     --background: #202529;
     --text: #ede4d3;
-    --muted: #b8b0a2;
-    --border: #4a5157;
+    --muted: #aaa294;
+    --border: #454c51;
     --link: #ede4d3;
 }
 
 [data-theme="light"] {
-    --background: #f3eddf;
-    --text: #252a2e;
-    --muted: #6f6a61;
-    --border: #cfc5b4;
-    --link: #252a2e;
+    --background: #ede4d3;
+    --text: #202529;
+    --muted: #66625b;
+    --border: #c7bdad;
+    --link: #202529;
 }
 
 * {
@@ -38,6 +38,10 @@ body {
 
     font-size: 16px;
     line-height: 1.65;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
 }
 
 main {
@@ -47,6 +51,13 @@ main {
 
 header {
     margin-bottom: 64px;
+}
+
+.header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
 }
 
 h1 {
@@ -91,6 +102,34 @@ h2 {
 
 p {
     margin: 0 0 16px;
+}
+
+#theme-toggle {
+    flex-shrink: 0;
+
+    width: 34px;
+    height: 34px;
+    padding: 0;
+
+    background: transparent;
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 50%;
+
+    font-size: 17px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+#theme-toggle:hover {
+    border-color: var(--text);
 }
 
 footer {
