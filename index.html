@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,16 +9,37 @@
     <meta name="description" content="Personal academic homepage">
 
     <link rel="stylesheet" href="style.css">
+
+    <script>
+        const savedTheme = localStorage.getItem("theme");
+
+        if (savedTheme) {
+            document.documentElement.dataset.theme = savedTheme;
+        }
+    </script>
 </head>
 
 <body>
     <main>
 
         <header>
-            <h1>Your Name</h1>
-            <p class="subtitle">
-                Your Position · Your Institution
-            </p>
+            <div class="header-top">
+                <div>
+                    <h1>Your Name</h1>
+                    <p class="subtitle">
+                        Your Position · Your Institution
+                    </p>
+                </div>
+
+                <button
+                    id="theme-toggle"
+                    type="button"
+                    aria-label="Toggle light and dark theme"
+                    title="Toggle theme"
+                >
+                    ◐
+                </button>
+            </div>
 
             <nav>
                 <a href="#about">About</a>
@@ -76,5 +98,21 @@
         </footer>
 
     </main>
+
+    <script>
+        const button = document.getElementById("theme-toggle");
+
+        button.addEventListener("click", () => {
+            const currentTheme =
+                document.documentElement.dataset.theme || "dark";
+
+            const newTheme =
+                currentTheme === "dark" ? "light" : "dark";
+
+            document.documentElement.dataset.theme = newTheme;
+            localStorage.setItem("theme", newTheme);
+        });
+    </script>
 </body>
 </html>
+```
